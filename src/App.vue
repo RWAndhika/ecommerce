@@ -7,6 +7,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import WomenSection from './components/WomenSection.vue';
+import '../src/assets/style/styles.css';
 
 export default {
   name: 'App',
