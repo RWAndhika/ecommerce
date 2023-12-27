@@ -2,36 +2,50 @@
     <div class="background">
         <div class="card">
             <div class="container">
-                <div class="row">
-                    <div class="column">
+                <div class="row-wrapper">
+                    <div class="column-wrapper">
                         <img class="image" :src="image">
                     </div>
-                    <div class="column-2">
-                        <div class="title">
-                            <p class="title-text"><b>Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacke</b></p>
-                        </div>
-                        <div class="type">
-                            <div class="gender">women's clothing</div>
-                            <div class="rating">rating
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
+                    <div class="column-wrapper">
+                        <div class="row-wrapper-vertical">
+                            <div class="column-wrapper-vertical">
+                                <div class="title">
+                                    <p class="title-text"><b>Lock and Love Women's Removable Hooded Faux Leather Moto Biker
+                                            Jacke</b></p>
+                                </div>
+                                <div class="type-row-wrapper">
+                                    <div class="gender">women's clothing</div>
+                                    <div class="rating">rating
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="description">
+                                    <p>Lorem ipsum dolor sit amet. Ea consequatur quaerat et faLorem ipsum dolor sit amet.
+                                        Ea
+                                        consequatur quaerat et facercerLorem ipsum dolor sit amet. Ea consequatur quaerat et
+                                        facerLorem ipsum dolor sit amet. Ea consequatur quaerat et facere dolor qui
+                                        molestiae
+                                        galisum et ullam velit aut soluta molestias.
+                                        In iusto quia id itaque quae ut autem adipisci aut suscipit quibusdam ad culpa
+                                        corporis
+                                        ut nihil minima.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="description">
-                            <p>Lorem ipsum dolor sit amet. Ea consequatur quaerat et faLorem ipsum dolor sit amet. Ea consequatur quaerat et facercerLorem ipsum dolor sit amet. Ea consequatur quaerat et facerLorem ipsum dolor sit amet. Ea consequatur quaerat et facere dolor qui molestiae galisum et ullam velit aut soluta molestias.
-                                In iusto quia id itaque quae ut autem adipisci aut suscipit quibusdam ad culpa corporis ut nihil minima.
-                            </p>
-                        </div>
-                        <div class="bottom-text">
-                            <hr>
-                            <div class="price">$29.90</div>
-                            <div class="buttons">
-                            <button type="button" class="buy-now">Buy Now</button>
-                            <button type="button" class="next-item">Next Item</button>
+                            <div class="column-wrapper-vertical">
+                                <div class="bottom-text">
+                                    <hr>
+                                    <div class="price">$29.90</div>
+                                    <div class="buttons">
+                                        <button type="button" class="buy-now">Buy Now</button>
+                                        <button type="button" class="next-item">Next Item</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,6 +66,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <!-- <style>
