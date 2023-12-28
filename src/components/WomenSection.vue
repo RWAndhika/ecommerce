@@ -43,7 +43,7 @@
                                     <div class="price">$29.90</div>
                                     <div class="buttons">
                                         <button type="button" class="buy-now">Buy Now</button>
-                                        <button type="button" class="next-item">Next Item</button>
+                                        <button @click="callItemApi" type="button" class="next-item">Next Item</button>
                                     </div>
                                 </div>
                             </div>
@@ -63,6 +63,14 @@ export default {
     data: function () {
         return {
             image: image
+        }
+    },
+    methods: {
+        async callItemApi() {
+            const api = await fetch('https://fakestoreapi.com/products/1')
+            const item = await api.json()
+            this.item = item
+            console.log(item)
         }
     }
 }
