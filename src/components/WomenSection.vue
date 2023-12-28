@@ -1,21 +1,21 @@
 <template>
-    <div class="background">
+    <!-- <div :style="[section == 'men\'s clothing' ? {'background-color': '#D6E6FF'} : {'background-color': '#FDEFFF'}]" class="background"> -->
+    <div :class="backgroundClass">
         <div class="card">
             <div class="container">
                 <div class="row-wrapper">
                     <div class="column-wrapper">
-                        <img class="image" :src="image">
+                        <img class="image" :src="item.image">
                     </div>
                     <div class="column-wrapper">
                         <div class="row-wrapper-vertical">
                             <div class="column-wrapper-vertical">
                                 <div class="title">
-                                    <p class="title-text"><b>Lock and Love Women's Removable Hooded Faux Leather Moto Biker
-                                            Jacke</b></p>
+                                    <p class="title-text"><b>{{ item.title }}</b></p>
                                 </div>
                                 <div class="type-row-wrapper">
-                                    <div class="gender">women's clothing</div>
-                                    <div class="rating">rating
+                                    <div class="gender">{{ item.category }}</div>
+                                    <div class="rating">{{ item.rating.rate }}
                                         <span class="dot"></span>
                                         <span class="dot"></span>
                                         <span class="dot"></span>
@@ -24,26 +24,17 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet. Ea consequatur quaerat et faLorem ipsum dolor sit amet.
-                                        Ea
-                                        consequatur quaerat et facercerLorem ipsum dolor sit amet. Ea consequatur quaerat et
-                                        facerLorem ipsum dolor sit amet. Ea consequatur quaerat et facere dolor qui
-                                        molestiae
-                                        galisum et ullam velit aut soluta molestias.
-                                        In iusto quia id itaque quae ut autem adipisci aut suscipit quibusdam ad culpa
-                                        corporis
-                                        ut nihil minima.
-                                    </p>
+                                <div :style="[item.description.length > 500 ? {'font-size': '24px'} : {'font-size': '28px'}]" class="description">
+                                    <p>{{ item.description }}</p>
                                 </div>
                             </div>
                             <div class="column-wrapper-vertical">
                                 <div class="bottom-text">
                                     <hr>
-                                    <div class="price">$29.90</div>
+                                    <div class="price">${{ item.price }}</div>
                                     <div class="buttons">
                                         <button type="button" class="buy-now">Buy Now</button>
-                                        <button @click="callItemApi" type="button" class="next-item">Next Item</button>
+                                        <button @click="nextItem" type="button" class="next-item">Next Item</button>
                                     </div>
                                 </div>
                             </div>
@@ -56,21 +47,59 @@
 </template>
 
 <script>
-import image from "../assets/jacket.png"
 
 export default {
     name: 'WomenSection',
-    data: function () {
+    data() {
         return {
-            image: image
+            section: '',
+            item :  {
+                id: '',
+                title: '',
+                price: '',
+                rating: {
+                    rate: '', count: ''
+                },
+                category: '',
+                description: '',
+                image: ''
+            },
+            clickCount: 1,
+            backgroundClass: 'background'
         }
     },
+
+    async beforeCreate() {
+        const api = await fetch('https://fakestoreapi.com/products/1')
+        const item = await api.json()
+        this.item = item
+    },
+
     methods: {
+        nextItem() {
+            if (this.clickCount == 20) this.clickCount = 0
+            this.clickCount++
+            this.callItemApi()
+        },
         async callItemApi() {
-            const api = await fetch('https://fakestoreapi.com/products/1')
+            const api = await fetch('https://fakestoreapi.com/products/' + this.clickCount)
             const item = await api.json()
-            this.item = item
-            console.log(item)
+            
+            if (item.category == "men's clothing" || item.category == "women's clothing") {
+                this.item = item
+                this.section = item.category
+                console.log(item)
+            } else {
+                this.section = 'unavailable'
+            }
+
+            if (this.section == "men's clothing") {
+                this.backgroundClass = 'background-men'
+            } else if (this.section == "women's clothing") {
+                this.backgroundClass = 'background-women'
+            } else {
+                this.backgroundClass = 'background'
+            }
         }
     }
 }
