@@ -9,6 +9,18 @@ body {
 
 .background {
     background-image: url("../bg-pattern.svg");
+    background-color: #FFFFFF;
+    height: 66vh;
+}
+
+.background-men {
+    background-image: url("../bg-pattern.svg");
+    background-color: #D6E6FF;
+    height: 66vh;
+}
+
+.background-women {
+    background-image: url("../bg-pattern.svg");
     background-color: #FDEFFF;
     height: 66vh;
 }
