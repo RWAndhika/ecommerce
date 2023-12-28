@@ -1,45 +1,54 @@
 <template>
     <!-- <div :style="[section == 'men\'s clothing' ? {'background-color': '#D6E6FF'} : {'background-color': '#FDEFFF'}]" class="background"> -->
     <div :class="backgroundClass">
-        <div class="card">
-            <div class="container">
-                <div class="row-wrapper">
-                    <div class="column-wrapper">
-                        <img class="image" :src="item.image">
-                    </div>
-                    <div class="column-wrapper">
-                        <div class="row-wrapper-vertical">
-                            <div class="column-wrapper-vertical">
-                                <div class="title">
-                                    <p class="title-text"><b>{{ item.title }}</b></p>
-                                </div>
-                                <div class="type-row-wrapper">
-                                    <div class="gender">{{ item.category }}</div>
-                                    <div class="rating">{{ item.rating.rate }}
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
+        <div v-if="available">
+            <div class="card">
+                <div class="container">
+                    <div class="row-wrapper">
+                        <div class="column-wrapper">
+                            <img class="image" :src="item.image">
+                        </div>
+                        <div class="column-wrapper">
+                            <div class="row-wrapper-vertical">
+                                <div class="column-wrapper-vertical">
+                                    <div class="title">
+                                        <p class="title-text"><b>{{ item.title }}</b></p>
+                                    </div>
+                                    <div class="type-row-wrapper">
+                                        <div class="gender">{{ item.category }}</div>
+                                        <div class="rating">{{ item.rating.rate }}
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div :style="[item.description.length > 500 ? {'font-size': '24px'} : {'font-size': '28px'}]" class="description">
+                                        <p>{{ item.description }}</p>
                                     </div>
                                 </div>
-                                <hr>
-                                <div :style="[item.description.length > 500 ? {'font-size': '24px'} : {'font-size': '28px'}]" class="description">
-                                    <p>{{ item.description }}</p>
-                                </div>
-                            </div>
-                            <div class="column-wrapper-vertical">
-                                <div class="bottom-text">
-                                    <hr>
-                                    <div class="price">${{ item.price }}</div>
-                                    <div class="buttons">
-                                        <button type="button" class="buy-now">Buy Now</button>
-                                        <button @click="nextItem" type="button" class="next-item">Next Item</button>
+                                <div class="column-wrapper-vertical">
+                                    <div class="bottom-text">
+                                        <hr>
+                                        <div class="price">${{ item.price }}</div>
+                                        <div class="buttons">
+                                            <button type="button" class="buy-now">Buy Now</button>
+                                            <button @click="nextItem" type="button" class="next-item">Next Item</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="card">
+                <div class="container">
+                    <button @click="nextItem" type="button" class="next-item">Next Product</button>
                 </div>
             </div>
         </div>
@@ -65,7 +74,8 @@ export default {
                 image: ''
             },
             clickCount: 1,
-            backgroundClass: 'background'
+            backgroundClass: 'background',
+            available: 1
         }
     },
 
@@ -89,8 +99,10 @@ export default {
                 this.item = item
                 this.section = item.category
                 console.log(item)
+                this.available = 1
             } else {
                 this.section = 'unavailable'
+                this.available = 0
             }
 
             if (this.section == "men's clothing") {
