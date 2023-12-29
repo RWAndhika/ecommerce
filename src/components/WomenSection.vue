@@ -17,11 +17,11 @@
                                     <div class="type-row-wrapper">
                                         <div class="gender">{{ item.category }}</div>
                                         <div class="rating">{{ item.rating.rate }}
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
+                                            <span :class="firstDotClass"></span>
+                                            <span :class="secondDotClass"></span>
+                                            <span :class="thirdDotClass"></span>
+                                            <span :class="fourthDotClass"></span>
+                                            <span :class="fifthDotClass"></span>
                                         </div>
                                     </div>
                                     <hr>
@@ -89,6 +89,82 @@ export default {
         const api = await fetch('https://fakestoreapi.com/products/1')
         const item = await api.json()
         this.item = item
+
+        if (item.category == "men's clothing" || item.category == "women's clothing") {
+                this.item = item
+                this.section = item.category
+                console.log(item)
+                this.available = 1
+            } else {
+                this.section = 'unavailable'
+                this.available = 0
+            }
+
+            if (this.section == "men's clothing") {
+                this.sectionClass = 'section-men'
+
+                if (item.rating.rate >= 1) {
+                    this.firstDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fistDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 2) {
+                    this.secondDotClass = 'dot dot-fill-men'
+                } else {
+                    this.secondDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 3) {
+                    this.thirdDotClass = 'dot dot-fill-men'
+                } else {
+                    this.thirdDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 4) {
+                    this.fourthDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fourthDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate == 5) {
+                    this.fifthDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fifthDotClass = 'dot dot-men'
+                }
+                
+            } else if (this.section == "women's clothing") {
+                this.sectionClass = 'section-women'
+
+                if (item.rating.rate >= 1) {
+                    this.firstDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fistDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 2) {
+                    this.secondDotClass = 'dot dot-fill-women'
+                } else {
+                    this.secondDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 3) {
+                    this.thirdDotClass = 'dot dot-fill-women'
+                } else {
+                    this.thirdDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 4) {
+                    this.fourthDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fourthDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate == 5) {
+                    this.fifthDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fifthDotClass = 'dot dot-women'
+                }
+            } else {
+                this.sectionClass = 'section-unavailable'
+                this.firstDotClass = 'dot'
+                this.secondDotClass = 'dot'
+                this.thirdDotClass = 'dot'
+                this.fourthDotClass = 'dot'
+                this.fifthDotClass = 'dot'
+            }
     },
 
     methods: {
@@ -112,11 +188,69 @@ export default {
             }
 
             if (this.section == "men's clothing") {
-                this.backgroundClass = 'background-men'
+                this.sectionClass = 'section-men'
+
+                if (item.rating.rate >= 1) {
+                    this.firstDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fistDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 2) {
+                    this.secondDotClass = 'dot dot-fill-men'
+                } else {
+                    this.secondDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 3) {
+                    this.thirdDotClass = 'dot dot-fill-men'
+                } else {
+                    this.thirdDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate >= 4) {
+                    this.fourthDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fourthDotClass = 'dot dot-men'
+                }
+                if (item.rating.rate == 5) {
+                    this.fifthDotClass = 'dot dot-fill-men'
+                } else {
+                    this.fifthDotClass = 'dot dot-men'
+                }
+                
             } else if (this.section == "women's clothing") {
-                this.backgroundClass = 'background-women'
+                this.sectionClass = 'section-women'
+
+                if (item.rating.rate >= 1) {
+                    this.firstDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fistDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 2) {
+                    this.secondDotClass = 'dot dot-fill-women'
+                } else {
+                    this.secondDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 3) {
+                    this.thirdDotClass = 'dot dot-fill-women'
+                } else {
+                    this.thirdDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate >= 4) {
+                    this.fourthDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fourthDotClass = 'dot dot-women'
+                }
+                if (item.rating.rate == 5) {
+                    this.fifthDotClass = 'dot dot-fill-women'
+                } else {
+                    this.fifthDotClass = 'dot dot-women'
+                }
             } else {
-                this.backgroundClass = 'background'
+                this.sectionClass = 'section-unavailable'
+                this.firstDotClass = 'dot'
+                this.secondDotClass = 'dot'
+                this.thirdDotClass = 'dot'
+                this.fourthDotClass = 'dot'
+                this.fifthDotClass = 'dot'
             }
         }
     }
