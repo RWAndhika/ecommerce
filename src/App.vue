@@ -1,29 +1,15 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="HAlo"/> -->
-  <WomenSection/>
+  <Card/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import WomenSection from './components/WomenSection.vue'
+import Card from './components/Card.vue'
 import '../src/assets/style/styles.css'
 
 export default {
   name: 'App',
   components: {
-    WomenSection,
+    Card,
   },
 }
 </script>
-
-<!-- <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style> -->
