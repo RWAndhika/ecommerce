@@ -1,6 +1,6 @@
 <template>
     <!-- <div :style="[section == 'men\'s clothing' ? {'background-color': '#D6E6FF'} : {'background-color': '#FDEFFF'}]" class="background"> -->
-    <div :class="backgroundClass">
+    <div :class="sectionClass">
         <div v-if="available">
             <div class="card">
                 <div class="container">
@@ -47,8 +47,9 @@
         </div>
         <div v-else>
             <div class="card">
-                <div class="container">
-                    <button @click="nextItem" type="button" class="next-item">Next Product</button>
+                <div class="container-unavailable">
+                    <div class="comment-unavailable">This product is unavailable to show</div>
+                    <button @click="nextItem" type="button" class="next-item-unavailable">Next Product</button>
                 </div>
             </div>
         </div>
@@ -74,8 +75,13 @@ export default {
                 image: ''
             },
             clickCount: 1,
-            backgroundClass: 'background',
-            available: 1
+            sectionClass: 'section-unavailable',
+            available: 1,
+            firstDotClass: 'dot',
+            secondDotClass: 'dot',
+            thirdDotClass: 'dot',
+            fourthDotClass: 'dot',
+            fifthDotClass: 'dot'
         }
     },
 

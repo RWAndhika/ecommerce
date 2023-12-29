@@ -7,23 +7,61 @@ body {
     margin: 0px;
 }
 
-.background {
-    background-image: url("../bg-pattern.svg");
-    background-color: #FFFFFF;
+.section-unavailable {
+    background-color: #D8D7D7;;
     height: 66vh;
 }
 
-.background-men {
+.section-men {
     background-image: url("../bg-pattern.svg");
     background-color: #D6E6FF;
     height: 66vh;
 }
 
-.background-women {
+.section-men .title {
+    color: #002772;
+}
+
+.section-men .buy-now {
+    border: 3px solid #002772;
+    background: #002772;
+}
+
+.section-men .next-item {
+    border: 3px solid #002772;
+    background: #FFF;
+    color: #002772;
+}
+
+.section-men .price {
+    color: #002772;
+}
+
+.section-women {
     background-image: url("../bg-pattern.svg");
     background-color: #FDEFFF;
     height: 66vh;
 }
+
+.section-women .title {
+    color: #720060;
+}
+
+.section-women .buy-now {
+    border: 3px solid #720060;
+    background: #720060;
+}
+
+.section-women .next-item {
+    border: 3px solid #720060;
+    background: #FFF;
+    color: #720060;
+}
+
+.section-women .price {
+    color: #720060;
+}
+
 
 img {
     display: block;
@@ -34,7 +72,6 @@ img {
 }
 
 .title {
-    color: #720060;
     font-family: Inter;
     font-size: 40px;
     font-style: normal;
@@ -50,15 +87,26 @@ img {
     text-align: center;
     min-height: 100vh;
 }
-.container {
+.container, .container-unavailable {
     padding: 20px 70px;
     text-align: center;
     width: 75%;
     height: 700px;
-    flex-shrink: 0;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-unavailable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../sad-face.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: center;
+    background-position-x: 500px;
 }
 
 .row-wrapper {
@@ -125,7 +173,6 @@ img {
 
 .price {
     text-align: left;
-    color: #720060;
     font-family: Inter;
     font-size: 40px;
     font-style: normal;
@@ -177,13 +224,11 @@ img {
     flex-direction: column;
 }
 
-.next-item {
+.next-item, .next-item-unavailable {
     width: 100%;
     height: 52px;
     border-radius: 4px;
-    border: 3px solid #720060;
     background: #FFF;
-    color: #720060;
     font-family: Inter;
     font-size: 35px;
     align-items: center;
@@ -192,6 +237,24 @@ img {
     line-height: normal;
     display: flex;
     flex-direction: column;
+}
+
+.comment-unavailable {
+    color: #000;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.next-item-unavailable {
+    width: 70%;
+    border-radius: 4px;
+    border: 3px solid #000;
+    background: #FFF;
+    color: #000;
 }
 
 .bottom-text {
