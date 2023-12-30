@@ -1,10 +1,11 @@
-.title-text {
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-}
-
 body {
     margin: 0px;
+}
+
+.title-text {
+    width: auto;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
 }
 
 .section-unavailable {
@@ -63,12 +64,12 @@ body {
 }
 
 
-img {
+.card-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
-    margin-top: 50px;
+    height: auto;
 }
 
 .title {
@@ -80,14 +81,14 @@ img {
     text-align: left;
 }
 
-.card {
+.card, .skeleton {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     min-height: 100vh;
 }
-.container, .container-unavailable {
+.container, .container-unavailable, .skeleton-container {
     padding: 20px 70px;
     text-align: center;
     width: 75%;
@@ -145,12 +146,7 @@ img {
 .column-wrapper:first-child {
     flex: 25%;
     height: auto;
-}
-
-.type {
-    display: flex;
-    width: auto;
-    justify-content: space-between;
+    margin-right: 10px;
 }
 
 .gender {
@@ -201,30 +197,30 @@ img {
     margin-right: 3px;
 }
 
-.dot.dot-fill-men {
+.dot-fill-men {
     border: 2px solid #002772;
     background-color: #002772;
 }
 
-.dot.dot-men {
+.dot-men {
     border: 2px solid #002772;
 }
 
-.dot.dot-fill-women {
+.dot-fill-women {
     border: 2px solid #720060;
     background-color: #720060;
 }
 
-.dot.dot-women {
+.dot-women {
     border: 2px solid #720060;
 }
 
-.buttons {
+.buttons, .skeleton-buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.buy-now {
+.buy-now, .skeleton-buy-now {
     width: 100%;
     height: 52px;
     border-radius: 4px;
@@ -240,7 +236,7 @@ img {
     flex-direction: column;
 }
 
-.next-item, .next-item-unavailable {
+.next-item, .next-item-unavailable, .skeleton-next-item {
     width: 100%;
     height: 52px;
     border-radius: 4px;
@@ -278,4 +274,73 @@ img {
     bottom: 0; 
     min-width: 100%;
     padding-bottom: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #94A3B8;
+    }
+
+    50% {
+        background-color: #CBD5E1;
+    }
+
+    100% {
+        background-color: #94A3B8;
+    }
+}
+
+.skeleton-title {
+    width: 600px;
+    height: 40px;
+    animation: pulse 2s infinite ease-in-out;
+    margin-bottom: 25px;
+}
+
+.skeleton-gender {
+    width: 180px;
+    height: 25px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-rating {
+    width: 120px;
+    height: 35px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-img {
+    width: 500px;
+    height: 630px;
+    border-radius: 5%;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-description span:nth-child(1) {
+    display: block;
+    width: 550px;
+    height: 30px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-description span:nth-child(2) {
+    display: block;
+    width: 350px;
+    height: 30px;
+    animation: pulse 2s infinite ease-in-out;
+    margin-top: 5px;
+}
+
+.skeleton-description span:nth-child(3) {
+    display: block;
+    width: 350px;
+    height: 30px;
+    animation: pulse 2s infinite ease-in-out;
+    margin-top: 5px;
+}
+
+.skeleton-next-item, .skeleton-buy-now {
+    border: none;
+    animation: pulse 2s infinite ease-in-out;
 }
