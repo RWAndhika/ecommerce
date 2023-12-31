@@ -1,5 +1,6 @@
 <template>
     <div v-if="isLoading">
+        <!-- Skeleton Loader -->
         <div class="skeleton">
             <div class="container">
                 <div class="row-wrapper">
@@ -40,7 +41,9 @@
         </div>
     </div>
     <div v-else>
+        <!-- Ecommerce Card -->
         <div :class="sectionClass">
+            <!-- if the category available -->
             <div v-if="available">
                 <div class="card">
                     <div class="container">
@@ -75,8 +78,8 @@
                                             <hr>
                                             <div class="price-text">${{ item.price }}</div>
                                             <div class="buttons">
-                                                <button type="button" class="buy-now-button">Buy Now</button>
-                                                <button @click="nextItem" type="button" class="next-item-button">Next Item</button>
+                                                <button id="buy-now-btn" type="button" class="buy-now-button">Buy Now</button>
+                                                <button id="next-item-btn" @click="nextItem" type="button" class="next-item-button">Next Item</button>
                                             </div>
                                         </div>
                                     </div>
@@ -87,10 +90,11 @@
                 </div>
             </div>
             <div v-else>
+                <!-- if the category not available -->
                 <div class="card">
                     <div class="container-unavailable">
                         <div class="comment-unavailable">This product is unavailable to show</div>
-                        <button @click="nextItem" type="button" class="next-item-unavailable-button">Next Product</button>
+                        <button id="next-item-unavail-btn" @click="nextItem" type="button" class="next-item-unavailable-button">Next Product</button>
                     </div>
                 </div>
             </div>
