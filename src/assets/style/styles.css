@@ -2,14 +2,9 @@ body {
     margin: 0px;
 }
 
-.title-text {
-    width: auto;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-}
-
 .section-unavailable {
-    background-color: #D8D7D7;;
+    background-color: #D8D7D7;
+    ;
     height: 66vh;
 }
 
@@ -23,18 +18,18 @@ body {
     color: #002772;
 }
 
-.section-men .buy-now {
+.section-men .buy-now-button {
     border: 3px solid #002772;
     background: #002772;
 }
 
-.section-men .next-item {
+.section-men .next-item-button {
     border: 3px solid #002772;
     background: #FFF;
     color: #002772;
 }
 
-.section-men .price {
+.section-men .price-text {
     color: #002772;
 }
 
@@ -48,18 +43,18 @@ body {
     color: #720060;
 }
 
-.section-women .buy-now {
+.section-women .buy-now-button {
     border: 3px solid #720060;
     background: #720060;
 }
 
-.section-women .next-item {
+.section-women .next-item-button {
     border: 3px solid #720060;
     background: #FFF;
     color: #720060;
 }
 
-.section-women .price {
+.section-women .price-text {
     color: #720060;
 }
 
@@ -81,14 +76,23 @@ body {
     text-align: left;
 }
 
-.card, .skeleton {
+.title-text {
+    width: auto;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+.card,
+.skeleton {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     min-height: 100vh;
 }
-.container, .container-unavailable, .skeleton-container {
+
+.container,
+.container-unavailable,
+.skeleton-container {
     padding: 20px 70px;
     text-align: center;
     width: 75%;
@@ -149,7 +153,7 @@ body {
     margin-right: 10px;
 }
 
-.gender {
+.gender-text {
     color: #3F3F3F;
     font-family: Inter;
     font-size: 25px;
@@ -158,7 +162,7 @@ body {
     line-height: normal;
 }
 
-.rating {
+.rating-text {
     color: #3F3F3F;
     font-family: Inter;
     font-size: 25px;
@@ -167,7 +171,7 @@ body {
     line-height: normal;
 }
 
-.price {
+.price-text {
     text-align: left;
     font-family: Inter;
     font-size: 40px;
@@ -215,12 +219,14 @@ body {
     border: 2px solid #720060;
 }
 
-.buttons, .skeleton-buttons {
+.buttons,
+.skeleton-buttons {
     display: flex;
     justify-content: space-between;
 }
 
-.buy-now, .skeleton-buy-now {
+.buy-now-button,
+.skeleton-buy-now-button {
     width: 100%;
     height: 52px;
     border-radius: 4px;
@@ -236,7 +242,9 @@ body {
     flex-direction: column;
 }
 
-.next-item, .next-item-unavailable, .skeleton-next-item {
+.next-item-button,
+.next-item-unavailable-button,
+.skeleton-next-item-button {
     width: 100%;
     height: 52px;
     border-radius: 4px;
@@ -261,7 +269,7 @@ body {
     margin-bottom: 5px;
 }
 
-.next-item-unavailable {
+.next-item-unavailable-button {
     width: 70%;
     border-radius: 4px;
     border: 3px solid #000;
@@ -271,7 +279,7 @@ body {
 
 .bottom-text {
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     min-width: 100%;
     padding-bottom: 20px;
 }
@@ -290,20 +298,26 @@ body {
     }
 }
 
-.skeleton-title {
+.skeleton-title-text {
     width: 600px;
     height: 40px;
     animation: pulse 2s infinite ease-in-out;
     margin-bottom: 25px;
 }
 
-.skeleton-gender {
+.skeleton-gender-text {
     width: 180px;
-    height: 25px;
+    height: 27px;
     animation: pulse 2s infinite ease-in-out;
 }
 
-.skeleton-rating {
+.skeleton-rating-text {
+    width: 120px;
+    height: 27px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-price-text {
     width: 120px;
     height: 35px;
     margin-bottom: 20px;
@@ -340,7 +354,8 @@ body {
     margin-top: 5px;
 }
 
-.skeleton-next-item, .skeleton-buy-now {
+.skeleton-next-item-button,
+.skeleton-buy-now-button {
     border: none;
     animation: pulse 2s infinite ease-in-out;
 }

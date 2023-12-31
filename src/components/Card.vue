@@ -9,12 +9,12 @@
                     <div class="column-wrapper">
                         <div class="row-wrapper-vertical">
                             <div class="column-wrapper-vertical">
-                                <div class="skeleton-title">
+                                <div class="skeleton-title-text">
                                     <p></p>
                                 </div>
                                 <div class="type-row-wrapper">
-                                    <div class="skeleton-gender"></div>
-                                    <div class="skeleton-rating"></div>
+                                    <div class="skeleton-gender-text"></div>
+                                    <div class="skeleton-rating-text"></div>
                                 </div>
                                 <hr>
                                 <p class="skeleton-description">
@@ -26,10 +26,10 @@
                             <div class="column-wrapper-vertical">
                                 <div class="bottom-text">
                                     <hr>
-                                    <div class="skeleton-rating"></div>
+                                    <div class="skeleton-price-text"></div>
                                     <div class="skeleton-buttons">
-                                        <button class="skeleton-buy-now" type="button" disabled></button>
-                                        <button class="skeleton-next-item" type="button" disabled></button>
+                                        <button class="skeleton-buy-now-button" type="button" disabled></button>
+                                        <button class="skeleton-next-item-button" type="button" disabled></button>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@
                                             <p class="title-text"><b>{{ item.title }}</b></p>
                                         </div>
                                         <div class="type-row-wrapper">
-                                            <div class="gender">{{ item.category }}</div>
-                                            <div class="rating">{{ item.rating.rate }}
+                                            <div class="gender-text">{{ item.category }}</div>
+                                            <div class="rating-text">{{ item.rating.rate }}
                                                 <span :class="firstDotClass"></span>
                                                 <span :class="secondDotClass"></span>
                                                 <span :class="thirdDotClass"></span>
@@ -73,10 +73,10 @@
                                     <div class="column-wrapper-vertical">
                                         <div class="bottom-text">
                                             <hr>
-                                            <div class="price">${{ item.price }}</div>
+                                            <div class="price-text">${{ item.price }}</div>
                                             <div class="buttons">
-                                                <button type="button" class="buy-now">Buy Now</button>
-                                                <button @click="nextItem" type="button" class="next-item">Next Item</button>
+                                                <button type="button" class="buy-now-button">Buy Now</button>
+                                                <button @click="nextItem" type="button" class="next-item-button">Next Item</button>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                 <div class="card">
                     <div class="container-unavailable">
                         <div class="comment-unavailable">This product is unavailable to show</div>
-                        <button @click="nextItem" type="button" class="next-item-unavailable">Next Product</button>
+                        <button @click="nextItem" type="button" class="next-item-unavailable-button">Next Product</button>
                     </div>
                 </div>
             </div>
